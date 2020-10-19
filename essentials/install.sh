@@ -3,15 +3,10 @@
 # Update the repositories
 sudo apt update
 
-# Text manipulation
-sudo apt install \
-    vim \
-    code \
-    -y
-
 # Provision and source code version management
 sudo apt install \
     git \
+    tig \
     pipx \
     ansible \
     -y
@@ -27,4 +22,5 @@ sudo apt install \
     -y
 
 pipx install mackup
+
 pipx run mackup restore
