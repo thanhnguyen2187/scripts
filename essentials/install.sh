@@ -9,6 +9,7 @@ sudo apt install \
     tig \
     pipx \
     ansible \
+    boxes \
     -y
 
 # Other utilities
