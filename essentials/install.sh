@@ -10,6 +10,7 @@ sudo apt install \
     pipx \
     ansible \
     boxes \
+    python3-venv \
     -y
 
 # Other utilities
