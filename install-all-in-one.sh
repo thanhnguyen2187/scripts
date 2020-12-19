@@ -14,7 +14,7 @@ sudo apt install \
     pipx \
     vim \
     neovim \
-    gnome-tweak-tool \
+    autojump \
     -y
 
 
@@ -27,7 +27,14 @@ sudo apt install \
     jq \
     htop \
     neofetch \
+    hugo \
+    gnome-tweak-tool \
+    gnome-shell-pomodoro \
     -y
+
+sudo snap install \
+    spotify
+# sudo snap intall code --classic
 
 
 ########################
@@ -37,7 +44,7 @@ sudo apt install \
 read -p "Do you want to install Wi-fi Adapter Driver (rtl88x2bu)? " choice
 case "$choice" in 
 
-  y|Y )
+  y|Y|yes|Yes )
     sudo apt install dkms
     git clone https://github.com/cilynx/rtl88x2bu.git
 
@@ -52,12 +59,12 @@ case "$choice" in
 
     cd ..
     rm -rf rtl88x2bu
+    read -p "Please remove the wireless USB Wi-fi Adapter and plug it in again."
   ;;
 
   # n|N ) echo "no";;
   * ) echo "Wi-fi Adapter Driver (rtl88x2bu) installation skipped.";;
 esac
-# remove the wireless USB Wi-fi Adapter and plug it in again
 
 
 #######
@@ -75,7 +82,7 @@ curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/instal
 ###########
 
 cd /tmp/
-curl -O https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2020.03.04_amd64.deb
+curl -L https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2020.03.04_amd64.deb -o dropbox.deb
 sudo apt install python3-gpg
 sudo apt install ./dropbox.deb
 cd -
@@ -97,7 +104,8 @@ pipx install tmuxp
 # Rust #
 ########
 
-echo 1 | "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
 
 ##########
 # Poetry #
@@ -128,3 +136,59 @@ echo "Type \`ibus restart\` to reload if necessary."
 
 pipx install mackup
 yes | pipx run mackup restore
+
+
+#############
+# NerdFonts #
+#############
+
+cd /tmp
+rm ./JetBrainsMono.zip
+curl -LOJ https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip
+unzip JetBrainsMono.zip -d ./fonts
+mkdir -p ~/.local/share/fonts
+cp ./fonts/* ~/.local/share/fonts/
+fc-cache -f -v
+
+
+#############
+# Alacritty #
+#############
+
+echo | sudo add-apt-repository ppa:mmstick76/alacritty
+sudo apt install alacritty
+
+
+#############
+# GitHubCLI #
+#############
+
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
+sudo apt-add-repository https://cli.github.com/packages
+sudo apt update
+sudo apt install gh
+
+
+##############
+# Vim/Neovim #
+##############
+
+# vim +'PlugInstall --sync' +qa
+nvim --headless +PlugInstall +UpdateRemotePlugins +qa
+
+
+###########
+# Firefox #
+###########
+
+echo "#####################################################################"
+echo "# Please enable legacy custom style of Firefox after the operation..."
+echo "#####################################################################"
+read -p ""
+
+cd $HOME/.mozilla/firefox/*.default-release
+mkdir -p chrome
+tee -a chrome/userChrome.css <<-EOF
+#TabsToolbar { visibility: collapse !important; }
+EOF
+cd -
