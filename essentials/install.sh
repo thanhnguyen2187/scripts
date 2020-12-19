@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Update the repositories
-sudo apt update
-
 # Provision and source code version management
 sudo apt install \
     git \
