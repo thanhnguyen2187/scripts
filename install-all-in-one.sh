@@ -11,6 +11,7 @@ sudo apt install \
     git \
     tig \
     python3-venv \
+    python3-jedi \
     pipx \
     vim \
     neovim \
@@ -119,6 +120,19 @@ zsh -c 'mkdir $ZSH/plugins/poetry'
 zsh -c 'poetry completions zsh > $ZSH/plugins/poetry/_poetry'
 
 
+##########
+# NodeJS #
+##########
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash completion
+
+nvm install --lts
+
+
 ###############
 # IBUS Bamboo #
 ###############
@@ -181,9 +195,9 @@ nvim --headless +PlugInstall +UpdateRemotePlugins +qa
 # Firefox #
 ###########
 
-echo "#####################################################################"
-echo "# Please enable legacy custom style of Firefox after the operation..."
-echo "#####################################################################"
+echo "#######################################################################"
+echo "# Please enable legacy custom style of Firefox after the operation... #"
+echo "#######################################################################"
 read -p ""
 
 cd $HOME/.mozilla/firefox/*.default-release
@@ -191,4 +205,28 @@ mkdir -p chrome
 tee -a chrome/userChrome.css <<-EOF
 #TabsToolbar { visibility: collapse !important; }
 EOF
+cd -
+
+
+##########
+# Notion #
+##########
+
+cd /tmp
+curl https://raw.githubusercontent.com/puneetsl/lotion/master/setup.sh > ./setup.sh
+chmod +x ./setup.sh
+./setup.sh install
+rm ./setup.sh
+cd -
+
+
+#####################
+# JetBrains Toolbox #
+#####################
+
+cd /tmp
+curl -LJ https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.19.7784.tar.gz -o jetbrains-toolbox.tar.gz
+tar -xvf ./jetbrains-toolbox.tar.gz
+cd ./jetbrains-toolbox-1.19.7784
+./jetbrains-toolbox
 cd -
