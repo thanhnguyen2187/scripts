@@ -8,8 +8,8 @@ sudo apt update
 ##############
 
 sudo apt install \
-    git \
     tig \
+    python3-dev \
     python3-venv \
     python3-jedi \
     pipx \
@@ -36,6 +36,10 @@ sudo apt install \
 sudo snap install \
     spotify
 # sudo snap intall code --classic
+sudo snap install \
+    go \
+    code \
+    --classic
 
 
 ########################
@@ -229,4 +233,26 @@ curl -LJ https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.19.7784.tar.
 tar -xvf ./jetbrains-toolbox.tar.gz
 cd ./jetbrains-toolbox-1.19.7784
 ./jetbrains-toolbox
+cd -
+
+
+########
+# Anki #
+########
+
+cd /tmp
+curl -LJ https://github.com/ankitects/anki/releases/download/2.1.38/anki-2.1.38-linux.tar.bz2 -o anki.tar.bz2
+tar xjf ./anki.tar.bz2
+cd anki-2.1.38-linux/
+sudo ./install.sh
+cd -
+
+
+#########
+# Skype #
+#########
+
+cd /tmp
+curl -LOJ https://go.skype.com/skypeforlinux-64.deb
+sudo apt install ./skypeforlinux-64.deb
 cd -
