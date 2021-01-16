@@ -8,6 +8,9 @@ sudo apt update
 ##############
 
 sudo apt install \
+    libtool \
+    autoconf \
+    automake \
     tig \
     python3-dev \
     python3-venv \
@@ -29,9 +32,10 @@ sudo apt install \
     htop \
     neofetch \
     hugo \
+    variety \
     gnome-tweak-tool \
-    gnome-shell-pomodoro \
     -y
+    # gnome-shell-pomodoro \
 
 sudo snap install \
     spotify
@@ -269,3 +273,45 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash completion
 
 nvm install --lts
+
+
+###############
+# DotNet Core #
+###############
+
+cd /tmp
+
+wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+sudo apt install ./packages-microsoft-prod.deb
+
+rm packages-microsoft-prod.deb
+
+sudo apt update
+sudo apt install apt-transport-https \
+    dotnet-sdk-5.0 \
+    -y
+
+cd -
+
+
+##################
+# Vim and Neovim #
+##################
+
+sudo apt install vim \
+    nvim \
+    -y
+# 3 should be correlated to nvim
+echo 3 | sudo update-alternatives --config editor
+
+
+##########
+# Chrome #
+##########
+
+cd /tmp
+
+curl -LOJ https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo apt install ./google-chrome-stable_current_amd64.deb
+
+cd -
