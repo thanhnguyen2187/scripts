@@ -19,6 +19,7 @@ sudo apt install \
     vim \
     neovim \
     autojump \
+    graphviz \
     -y
 
 
@@ -291,6 +292,9 @@ sudo apt install apt-transport-https \
     dotnet-sdk-5.0 \
     -y
 
+dotnet install --global dotnet-ef
+dotnet tool install --global Microsoft.Web.LibraryManager.Cli
+
 cd -
 
 
@@ -315,3 +319,12 @@ curl -LOJ https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.
 sudo apt install ./google-chrome-stable_current_amd64.deb
 
 cd -
+
+
+##################
+# Sqlite Browser #
+##################
+
+sudo add-apt-repository -y ppa:linuxgndu/sqlitebrowser
+sudo apt update
+sudo apt install sqlitebrowser
