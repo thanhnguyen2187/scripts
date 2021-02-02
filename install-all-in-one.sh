@@ -39,7 +39,8 @@ sudo apt install \
     # gnome-shell-pomodoro \
 
 sudo snap install \
-    spotify
+    spotify \
+    telegram-desktop
 # sudo snap intall code --classic
 sudo snap install \
     go \
@@ -192,14 +193,6 @@ sudo apt update
 sudo apt install gh
 
 
-##############
-# Vim/Neovim #
-##############
-
-# vim +'PlugInstall --sync' +qa
-nvim --headless +PlugInstall +UpdateRemotePlugins +qa
-
-
 ###########
 # Firefox #
 ###########
@@ -307,6 +300,7 @@ sudo apt install vim \
     -y
 # 3 should be correlated to nvim
 echo 3 | sudo update-alternatives --config editor
+nvim --headless +PlugInstall +UpdateRemotePlugins +qa
 
 
 ##########
@@ -328,3 +322,33 @@ cd -
 sudo add-apt-repository -y ppa:linuxgndu/sqlitebrowser
 sudo apt update
 sudo apt install sqlitebrowser
+
+
+##########
+# Docker #
+##########
+
+sudo apt update && \
+sudo apt install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
+    software-properties-common \
+    -y
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo apt-key fingerprint 0EBFCD88
+
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+
+sudo apt install \
+    docker-ce \
+    docker-ce-cli \
+    containerd.io \
+    docker-compose \
+    -y
+
