@@ -45,6 +45,8 @@ sudo snap install \
 sudo snap install \
     go \
     code \
+    emacs \
+    espanso \
     --classic
 
 
@@ -134,13 +136,13 @@ zsh -c 'poetry completions zsh > $ZSH/plugins/poetry/_poetry'
 # NodeJS #
 ##########
 
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+# curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash completion
 
-nvm install --lts
+# nvm install --lts
 
 
 ###############
@@ -299,7 +301,7 @@ sudo apt install vim \
     nvim \
     -y
 # 3 should be correlated to nvim
-echo 3 | sudo update-alternatives --config editor
+# echo 3 | sudo update-alternatives --config editor
 nvim --headless +PlugInstall +UpdateRemotePlugins +qa
 
 
@@ -352,3 +354,39 @@ sudo apt install \
     docker-compose \
     -y
 
+
+############
+# Obsidian #
+############
+
+mkdir -p $HOME/Applications
+
+curl -LJ \
+https://github.com/obsidianmd/obsidian-releases/releases/download/v0.10.11/Obsidian-0.10.11.AppImage \
+    -o $HOME/Applications/Obsidian.AppImage
+
+tee ~/.local/share/applications/Obsidian.desktop &> /dev/null <<EOF
+[Desktop Entry]
+Name=Obsidian
+Exec=$HOME/Applications/Obsidian.AppImage
+StartupNotify=true
+StartupWMClass=obsidian
+Terminal=false
+Type=Application
+EOF
+
+
+########
+# ASDF #
+########
+
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf
+cd ~/.asdf
+git checkout "$(git describe --abbrev=0 --tags)"
+
+# for asdf-nodejs
+
+sudo apt install gpg dirmngr
+bash -c "${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring"
+asdf install nodejs latest:lts
+asdf global nodejs lts
