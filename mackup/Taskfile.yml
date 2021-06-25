@@ -1,9 +1,0 @@
-# https://taskfile.dev
-
-version: '3'
-
-tasks:
-  install:
-    cmds:
-      - pipx install mackup
-      - yes | pipx run mackup restore
