@@ -1,0 +1,10 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  install:
+    cmds:
+      - sudo apt install vim nvim -y
+      - nvim --headless +PlugInstall +UpdateRemotePlugins +qa
+      # - echo 3 | sudo update-alternatives --config editor

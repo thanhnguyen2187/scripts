@@ -1,0 +1,9 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  install:
+    cmds:
+      - sudo add-apt-repository ppa:mmstick76/alacritty
+      - sudo apt install alacritty

@@ -1,25 +1,15 @@
 #!/bin/bash
 
-# Provision and source code version management
 sudo apt install \
-    git \
+    libtool \
+    autoconf \
+    automake \
     tig \
-    pipx \
-    ansible \
-    boxes \
+    python3-dev \
     python3-venv \
-    -y
-
-# Other utilities
-sudo apt install \
-    curl \
-    jq \
-    htop \
-    neofetch \
-    ranger \
-    tree \
-    -y
-
-pipx install mackup
-
-pipx run mackup restore
+    python3-jedi \
+    pipx \
+    autojump \
+    graphviz \
+    -y \
+;

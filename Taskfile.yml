@@ -1,0 +1,17 @@
+# https://taskfile.dev
+
+version: '3'
+
+includes:
+  essentials:
+    dir: ./essentials
+    taskfile: ./essentials/Taskfile.yml
+  utilities: ./utilities
+  rtl88x2bu: ./rtl88x2bu
+
+tasks:
+  install-standard:
+    cmds:
+      - task: essentials:install
+      - task: utilities:install
+
