@@ -1,0 +1,9 @@
+= Scripts
+
+== Bootstrap
+
+[source,bash]
+----
+include::bootstrap.sh[]
+----
+
