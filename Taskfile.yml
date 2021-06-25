@@ -2,15 +2,12 @@
 
 version: '3'
 
-includes:
-  essentials:
-    dir: ./essentials
-    taskfile: ./essentials/Taskfile.yml
-  utilities: ./utilities
-  rtl88x2bu: ./rtl88x2bu
-
 tasks:
-  install-standard:
+  install:
+    cmds:
+      - ./essentials/install.sh
+      - ./utilities/install.sh
+  install-with-rtl88x2bu:
     cmds:
       - task: essentials:install
       - task: utilities:install
