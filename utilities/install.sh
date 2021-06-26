@@ -1,15 +1,6 @@
 #!/bin/bash
 
 sudo apt install \
-    curl \
-    jq \
-    htop \
-    neofetch \
-    hugo \
-    -y \
-;
-
-sudo apt install \
     variety \
     gnome-tweak-tool \
     -y \
