@@ -11,5 +11,10 @@ sudo apt install \
     pipx \
     autojump \
     graphviz \
+    curl \
+    jq \
+    htop \
+    neofetch \
+    hugo \
     -y \
 ;

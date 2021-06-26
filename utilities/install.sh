@@ -6,6 +6,10 @@ sudo apt install \
     htop \
     neofetch \
     hugo \
+    -y \
+;
+
+sudo apt install \
     variety \
     gnome-tweak-tool \
     -y \
