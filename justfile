@@ -1,5 +1,8 @@
 provision:
     ./essentials/install.sh
+    ./poetry/install.sh
+    ./bat/install.sh 0.18.1
+    ./ripgrep/install.sh 13.0.0
     ./zsh/install.sh
     ./tmux/install.sh
     ./mackup/install.sh
@@ -11,14 +14,14 @@ provision:
 
 provision-extended: provision
     ./utilities/install.sh
-    ./nerdfonts/install.sh JetBrainsMono v2.1.0
+    ./nerdfonts/install.sh JetBrainsMono 2.1.0
     ./firefox/hide-tabs.sh
     ./jetbrains-toolbox/install.sh
     ./skype/install.sh
 
 install-nerdfonts-ubuntu:
-    ./nerdfonts/install.sh Ubuntu v2.1.0
-    ./nerdfonts/install.sh UbuntuMono v2.1.0
+    ./nerdfonts/install.sh Ubuntu 2.1.0
+    ./nerdfonts/install.sh UbuntuMono 2.1.0
 
 create-new-script FOLDER NAME:
     mkdir -p {{FOLDER}}

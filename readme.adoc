@@ -2,8 +2,11 @@
 
 == Bootstrap
 
+Copy the content inside `bootstrap.sh` and run it.
+
+== Provision
+
 [source,bash]
 ----
-include::bootstrap.sh[]
+just provision
 ----
-
