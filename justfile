@@ -23,6 +23,9 @@ install-nerdfonts-ubuntu:
     ./nerdfonts/install.sh Ubuntu 2.1.0
     ./nerdfonts/install.sh UbuntuMono 2.1.0
 
+update-dotfiles:
+    git -C ~/.dotfiles pull
+
 create-new-script FOLDER NAME:
     mkdir -p {{FOLDER}}
     echo "#!/bin/bash" > {{FOLDER}}/{{NAME}}.sh
