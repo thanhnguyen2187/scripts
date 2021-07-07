@@ -23,3 +23,6 @@ sudo apt install \
     containerd.io \
     docker-compose \
     -y
+
+sudo groupadd docker
+sudo usermod -aG docker "$USER"
