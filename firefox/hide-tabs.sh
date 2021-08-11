@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd "$HOME/.mozilla/firefox/*.default-release" || exit
+cd $HOME/.mozilla/firefox/*.default-release || exit
 
 mkdir -p chrome
 tee -a chrome/userChrome.css <<-EOF
