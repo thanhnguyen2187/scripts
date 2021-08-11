@@ -1,6 +1,5 @@
 provision:
     ./essentials/install.sh
-    ./poetry/install.sh
     ./bat/install.sh 0.18.1
     ./ripgrep/install.sh 13.0.0
     ./zsh/install.sh
@@ -8,16 +7,19 @@ provision:
     ./mackup/install.sh
     ./vim/install.sh
     ./docker/install.sh
-    ./asdf/install.sh
-    ./asdf/install-nodejs.sh
     ./github-cli/install.sh
 
-provision-extended: provision
+provision-extended:
     ./utilities/install.sh
     ./nerdfonts/install.sh JetBrainsMono 2.1.0
     ./firefox/hide-tabs.sh
     ./jetbrains-toolbox/install.sh
     ./skype/install.sh
+
+provision-after:
+    ./asdf/install.sh
+    ./asdf/install-nodejs.sh
+    ./poetry/install.sh
 
 install-nerdfonts-ubuntu:
     ./nerdfonts/install.sh Ubuntu 2.1.0
