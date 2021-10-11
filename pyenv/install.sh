@@ -7,7 +7,6 @@ sudo apt install \
     libbz2-dev \
     libreadline-dev \
     libsqlite3-dev \
-    wget \
     curl \
     llvm \
     libncurses5-dev \
@@ -16,7 +15,7 @@ sudo apt install \
     tk-dev \
     libffi-dev \
     liblzma-dev \
-    git \
-    -y
+    -y \
+;
 
 curl https://pyenv.run | bash
