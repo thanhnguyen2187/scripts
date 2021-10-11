@@ -2,8 +2,10 @@
 
 sudo apt install \
     libtool \
+    wget \
     autoconf \
     automake \
+    build-essentials \
     tig \
     python3-dev \
     python3-venv \
