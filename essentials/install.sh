@@ -5,7 +5,7 @@ sudo apt install \
     wget \
     autoconf \
     automake \
-    build-essentials \
+    build-essential \
     tig \
     python3-dev \
     python3-venv \
