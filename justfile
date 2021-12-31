@@ -6,7 +6,7 @@ provision:
     ./zsh/install.sh
     ./tmux/install.sh
     ./mackup/install.sh
-    ./vim/install.sh
+    # ./vim/install.sh
     ./docker/install.sh
     ./github-cli/install.sh
     ./asdf/install.sh
