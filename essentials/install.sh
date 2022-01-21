@@ -9,8 +9,9 @@ sudo apt install \
     tig \
     python3-dev \
     python3-venv \
+    python3-pip \
     python3-jedi \
-    pipx \
+    python-as-python3 \
     autojump \
     graphviz \
     curl \
@@ -20,3 +21,4 @@ sudo apt install \
     hugo \
     -y \
 ;
+python3 -m pip install --user pipx
